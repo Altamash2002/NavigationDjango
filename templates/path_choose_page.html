@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Path choosing page</title>
+    <link rel="stylesheet" href="../static/base/style.css">
+</head>
+<body>
+
+    <h1 class="heading">Choose Your Path</h1>
+    <!-- select form -->
+    <form action="show_my_map" name ="Haus" method = ''>
+        <label style="font-size: 35px;">Choose House:</label>
+          <select name="Haus">
+            {% comment %} <option value="{{Haus[1]}}" selected>{{Haus[1]}}</option> {% endcomment %}
+            {% for i in Haus %}
+              <option value="{{i}}">{{i}}</option>
+            {% endfor %}
+          </select>
+        <input type="submit" style="font-size: 20px" value="Select">
+    </form>
+
+</body>
+</html>

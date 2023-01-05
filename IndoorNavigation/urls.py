@@ -23,5 +23,6 @@ urlpatterns = [
     path('services' , include('base.urls')),
     path('product' , include('base.urls')),
     path('show_my_map' , include('base.urls')),
+    path('choose_path' , include('base.urls')),
 ]
  

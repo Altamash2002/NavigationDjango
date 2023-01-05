@@ -8,6 +8,8 @@ import json
 from IPython.display import display
 import datetime
 
+from base.models import House, ways
+
 # Create your views here.
 def index(request):
     return render(request , "index.html")
@@ -22,7 +24,17 @@ def services(request):
 def product(request):
     return HttpResponse('<h1>this is Product Page</h1>')
 
+def choose(request):
+    context = {
+        'Haus' : ['' , 'Haus1' , 'Haus2' ,'Haus3' ,'Haus4' ,'Haus5' ,'Haus6' ,'Haus7' ,'Haus8' ,'Haus9' ,'Haus10' ,'Haus11' ,'Haus12' ,'Haus13' ,'Haus14' ,'Haus15' ,'Haus16' ,'Haus17' ,'Haus18' ,'Haus19' ,'Haus20' ,'Haus21' ,'Haus22' ,'Haus23' ,'Haus24' ,'Haus25' ,'Haus26' ,'Haus27' ,'Haus28' ,'Haus29' ,'Haus30' ,'Haus31' ,'Haus32' ,'Haus33' ,'Haus34' ,'Haus35' ,'Haus36' ,'Haus37' ,'Haus38' ,'Haus39' ,'Haus40' ,'Haus41' ,'Haus42' ,'Haus43' ]
+    }
+    return render(request , 'path_choose_page.html' , context)
+
 def show_map(request):  
+    print('*************************')
+    Haus = request.GET.get('Haus')
+    print(Haus)
+    print('*************************')
     # context = {}
     #creation of map comes here + business logic , stack overflow main code 
     # m = folium.Map([19.234095,72.990364], zoom_start=18)
@@ -64,9 +76,16 @@ def show_map(request):
             self.position = 'w'
             self.destination = 'Haus17'
 
-            for root, dirs, files in os.walk('maps/GeoResources'):  
-                for file in files:
-                    self.geoResources[file.split('.')[0]] = root+'/'+file
+            # obj = {}
+            for i in House.objects.all():
+                key = 'Haus' + str(i.id)
+                self.geoResources[key] = i.des
+
+            for j in ways.objects.all():
+                key = 'w' +  str(j.id)
+                self.geoResources[key] = j.way
+
+            self.redrawMap()
 
         def changeDestination(self,newDestination):
             self.destination = newDestination
@@ -88,9 +107,7 @@ def show_map(request):
                 return coordinate
 
             searchString = self.position + self.destination.split('Haus')[1]
-            with open(self.geoResources[searchString]) as f:
-                testWay = json.load(f)
-
+            testWay = self.geoResources[searchString]
             for feature in testWay['features']:
                 path = feature['geometry']['coordinates']
 
@@ -126,6 +143,7 @@ def show_map(request):
         'Haus15',
         'Haus16',
         'Haus17',
+        'Haus18',
         'Haus19',
         'Haus2',
         'Haus20',
@@ -156,7 +174,7 @@ def show_map(request):
         'Haus7',
         'Haus8',
         'Haus9'],
-        value='Haus13',
+        value=Haus,
         description='Target',
         disabled=False)
 

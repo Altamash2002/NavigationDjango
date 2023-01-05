@@ -4,7 +4,7 @@ from django.db import models
 
 
 class House(models.Model):
-    des = models.TextField()
+    des = models.JSONField()
 
 class ways(models.Model):
-    way = models.TextField()
+    way = models.JSONField()
