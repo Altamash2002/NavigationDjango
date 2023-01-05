@@ -30,7 +30,7 @@ def choose(request):
     }
     return render(request , 'path_choose_page.html' , context)
 
-def show_map(request):  
+def show_map(request):   
     print('*************************')
     Haus = request.GET.get('Haus')
     print(Haus)
