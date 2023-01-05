@@ -156,7 +156,7 @@ def show_map(request):
         'Haus7',
         'Haus8',
         'Haus9'],
-        value='Haus22',
+        value='Haus13',
         description='Target',
         disabled=False)
 
