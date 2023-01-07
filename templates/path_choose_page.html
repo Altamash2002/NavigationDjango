@@ -12,14 +12,24 @@
     <h1 class="heading">Choose Your Path</h1>
     <!-- select form -->
     <form action="show_my_map" name ="Haus" method = ''>
-        <label style="font-size: 35px;">Choose House:</label>
-          <select name="Haus">
-            {% comment %} <option value="{{Haus[1]}}" selected>{{Haus[1]}}</option> {% endcomment %}
-            {% for i in Haus %}
-              <option value="{{i}}">{{i}}</option>
-            {% endfor %}
-          </select>
-        <input type="submit" style="font-size: 20px" value="Select">
+      {% comment %} {% csrf_token %} {% endcomment %}
+      <label style="font-size: 35px;">Choose From:</label>
+      <select name="From">
+          <option value="Start-Point">Start-Point</option>
+        {% for i in Haus %}
+          <option value="{{i}}">{{i}}</option>
+        {% endfor %}
+      </select>
+
+      &nbsp; &nbsp;
+
+      <label style="font-size: 35px;"> To: </label>
+      <select name="Haus">
+        {% for i in Haus %}
+          <option value="{{i}}">{{i}}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" style="font-size: 20px" value="Select">
     </form>
 
 </body>

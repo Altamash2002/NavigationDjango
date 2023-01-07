@@ -15,26 +15,30 @@ def index(request):
     return render(request , "index.html")
     # return HttpResponse('<h1>this is the home page</h1>')
 
-def about(request):
-    return HttpResponse('<h1>this is About Page</h1>')
-
-def services(request):
-    return HttpResponse('<h1>this is Services Page</h1>')
-
-def product(request):
-    return HttpResponse('<h1>this is Product Page</h1>')
-
 def choose(request):
+    Haus_obj = {}
+    keys = []
+    for i in House.objects.all():
+        key = 'Haus' + str(i.id)
+        Haus_obj[key] = i.des
+        # print(Haus_obj)
+        # keys = Haus_obj.keys()
+    # print(Haus_obj)
+    for i in Haus_obj:
+        keys.append(i)
+    # print(keys)
     context = {
-        'Haus' : ['' , 'Haus1' , 'Haus2' ,'Haus3' ,'Haus4' ,'Haus5' ,'Haus6' ,'Haus7' ,'Haus8' ,'Haus9' ,'Haus10' ,'Haus11' ,'Haus12' ,'Haus13' ,'Haus14' ,'Haus15' ,'Haus16' ,'Haus17' ,'Haus18' ,'Haus19' ,'Haus20' ,'Haus21' ,'Haus22' ,'Haus23' ,'Haus24' ,'Haus25' ,'Haus26' ,'Haus27' ,'Haus28' ,'Haus29' ,'Haus30' ,'Haus31' ,'Haus32' ,'Haus33' ,'Haus34' ,'Haus35' ,'Haus36' ,'Haus37' ,'Haus38' ,'Haus39' ,'Haus40' ,'Haus41' ,'Haus42' ,'Haus43' ]
+        'Haus' : keys
     }
     return render(request , 'path_choose_page.html' , context)
 
 def show_map(request):   
-    print('*************************')
+
+    # print('*************************')
     Haus = request.GET.get('Haus')
-    print(Haus)
-    print('*************************')
+    # print(Haus)
+    # print('*************************')
+
     # context = {}
     #creation of map comes here + business logic , stack overflow main code 
     # m = folium.Map([19.234095,72.990364], zoom_start=18)
@@ -120,7 +124,7 @@ def show_map(request):
 
         def redrawMap(self):
             #print(f'position {self.position}, destination {self.destination}')
-            hospitalMap = folium.Map(location = self.hospitalLocation, width = "75%", zoom_start = 17)
+            hospitalMap = folium.Map(location = self.hospitalLocation, width = "100%" , zoom_start = 17, max_zoom = 19)
             self.drawPathWay(hospitalMap)
             self.drawBuilding(hospitalMap)
             hospitalMap.save('./templates/show_folium_map.html')
@@ -147,7 +151,9 @@ def show_map(request):
         'Haus19',
         'Haus2',
         'Haus20',
+        'Haus21',
         'Haus22',
+        'Haus23',
         'Haus24',
         'Haus25',
         'Haus26',
@@ -163,6 +169,7 @@ def show_map(request):
         'Haus35',
         'Haus36',
         'Haus37',
+        'Haus38',
         'Haus39',
         'Haus4',
         'Haus40',

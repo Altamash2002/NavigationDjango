@@ -1,9 +1,19 @@
-{% extends 'header-footer.html' %}
-
-{% block body %}
-this is the main body part of the web
-{% endblock body %}
-
-{% block title %}
-Home
-{% endblock title %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <div>
+        <form action="choose_path" method="get" >
+            <input type="text" placeholder="Please enter your name :"> <br>
+            <input type="email" placeholder="Enter your email :"> <br>
+            <input type="text" placeholder="Enter the name of the person you want to meet"> <br> 
+            <input type="submit" value="Start">
+        </form>
+    </div>
+</body>
+</html>
