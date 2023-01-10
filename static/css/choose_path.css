@@ -1,0 +1,31 @@
+.heading{
+    /* color:red; */
+    text-align:center;
+    color: orange;
+}
+.select{
+    padding: 5px 10px;
+}
+form{
+    text-align: center;
+}
+.select-from-to{
+    margin: 15px 0;
+}
+.submit-btn{
+    margin: 20px 0;
+    padding: 15px 0px;
+    width: 20%;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: orange;
+    border: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+@media only screen and (max-width: 400px){
+    .submit-btn{
+        width: 50%;
+    }
+}

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,14 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
 </head>
 <body>
-    <div>
-        <form action="choose_path" method="get" >
-            <input type="text" placeholder="Please enter your name :"> <br>
-            <input type="email" placeholder="Enter your email :"> <br>
-            <input type="text" placeholder="Enter the name of the person you want to meet"> <br> 
-            <input type="submit" value="Start">
+    <div class="form-div">
+        <h1 class="home-heading">Reception Page</h1>
+        <form action="choose_path" method="get" class="index-form" >
+            <input type="text" placeholder="Please enter your name :" class="form-input"> <br>
+            <input type="email" placeholder="Enter your email :" class="form-input"> <br>
+            <input type="tel" placeholder="Enter Your Contact Number" class="form-input"> <br>
+            <input type="text" placeholder="Enter the name of the person you want to meet" class="form-input"> <br> 
+            <input type="text" placeholder="Reason to meet the person" class="form-input"> <br>
+            <input type="submit" value="Start" class='submit-btn'>
         </form>
     </div>
 </body>

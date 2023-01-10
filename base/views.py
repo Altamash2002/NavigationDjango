@@ -97,9 +97,9 @@ def show_map(request):
 
         def changeStartPoint(self, newStartPoint):
             
-            #self.position = newStartPoint #does not work yet
+            self.position = newStartPoint #does not work yet
             print(f'Selected Start: {newStartPoint}; Selected Target: {self.destination}')
-            #self.redrawMap()
+            self.redrawMap()
             
 
         def drawPathWay(self,hospitalMap):
@@ -269,7 +269,7 @@ def show_map(request):
     # Position Selector
     selectPosition_widget=ipywidgets.Select(
         options=['Aufnahme', 'Eingang West', 'Eingang Ost', 'Eingang Fahrzeuge'],
-        value='Eingang West',
+        value='Aufnahme',
         description='Start',
         disabled=False)
 

@@ -21,5 +21,6 @@ urlpatterns = [
     path('' , include('base.urls')),
     path('show_my_map' , include('base.urls')),
     path('choose_path' , include('base.urls')),
+    path('', include('pwa.urls'))
 ]
  

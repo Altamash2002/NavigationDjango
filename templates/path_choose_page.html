@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,31 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Path choosing page</title>
-    <link rel="stylesheet" href="../static/base/style.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/choose_path.css' %}"/>
 </head>
 <body>
 
     <h1 class="heading">Choose Your Path</h1>
     <!-- select form -->
     <form action="show_my_map" name ="Haus" method = ''>
-      {% comment %} {% csrf_token %} {% endcomment %} 
-      <label style="font-size: 35px;">Choose From:</label>
-      <select name="From">
-          <option value="Start-Point">Start-Point</option>
-        {% for i in Haus %}
-          <option value="{{i}}">{{i}}</option>
-        {% endfor %}
-      </select>
+      <div class="select-from-to">
+        {% comment %} {% csrf_token %} {% endcomment %} 
+        <label style="font-size: 23px;">Choose From:</label>
+        <select name="From" class="select">
+            <option value="Start-Point">Start-Point</option>
+          {% for i in Haus %}
+            <option value="{{i}}">{{i}}</option>
+          {% endfor %}
+        </select>
+      </div>
 
-      &nbsp; &nbsp;
+      <div class="select-from-to">
+        <label style="font-size: 23px;"> To: </label>
+        <select name="Haus" class="select">
+          {% for i in Haus %}
+            <option value="{{i}}">{{i}}</option>
+          {% endfor %}
+        </select> 
+      </div>
+      <br> <br>
 
-      <label style="font-size: 35px;"> To: </label>
-      <select name="Haus">
-        {% for i in Haus %}
-          <option value="{{i}}">{{i}}</option>
-        {% endfor %}
-      </select>
-      <input type="submit" style="font-size: 20px" value="Select">
+      <input type="submit" class="submit-btn" style="font-size: 20px" value="Select">
     </form>
 
 </body>
